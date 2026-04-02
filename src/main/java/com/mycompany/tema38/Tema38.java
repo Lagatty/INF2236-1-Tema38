@@ -11,6 +11,10 @@ package com.mycompany.tema38;
 public class Tema38 {
 
     public static void main(String[] args) {
-        System.out.println("Bienvenido al sistema de Arrendamiento de Equipos y Herramientas para Red de Sucursales");
+        System.out.println("Desea usar ventana blabla");
+        
+        //Elegir si se quiere ventana o consola
     }
+    
+    
 }

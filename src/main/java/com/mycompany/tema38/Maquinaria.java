@@ -19,6 +19,8 @@ public class Maquinaria extends Equipo{
     
     @Override
     public double calcularPrecioFinal(int dias){
-        return precioBase * horasMotor * dias;
+        return precioBase * horasMotor * dias; 
     }
+    
+    
 }

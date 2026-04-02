@@ -6,6 +6,8 @@ public class Cliente {
     
     
     private String rut;
+    private String nombre;
+    private String apellido;
     private ArrayList<Arrendamiento> historial;
     
    
