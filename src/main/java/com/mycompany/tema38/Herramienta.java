@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.tema38;
 
-/**
- *
- * @author pa447
- */
 public class Herramienta extends Equipo{
-    private int dias;
+    private double costoLimpieza;
     
-    public Herramienta(int dias){
-        this.dias = dias;
-        precioBase = 5.99;
+    public Herramienta(String id, String modelo, double precioBase){
+        this.id = id;
+        this.modelo = modelo;
+        this.precioBase = precioBase;
+        this.disponible = true; // Por defecto estara disponible
+        
+        this.costoLimpieza = 2500.0; // Costo de limpieza fijo
     }
     
     @Override
     public double calcularPrecioFinal(int dias){
-        return precioBase * dias;
+        double total = (precioBase * dias) + costoLimpieza;
+        return total;
     }
     
 }
