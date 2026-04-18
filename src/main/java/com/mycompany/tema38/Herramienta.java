@@ -4,6 +4,7 @@ public class Herramienta extends Equipo{
     private double costoLimpieza;
     
     public Herramienta(String id, String modelo, double precioBase){
+        //Elementos heredados de la clase Equipo
         this.id = id;
         this.modelo = modelo;
         this.precioBase = precioBase;

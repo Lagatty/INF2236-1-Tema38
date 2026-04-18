@@ -16,8 +16,8 @@ public class Cliente {
     public String getRut() {
         return rut;
     }
-
-    public void setRut(String rut) throws RutNoValidoException{
+    
+    public String limpiarRut(String rut) throws RutNoValidoException{
         // Se limpia el String
         String rutLimpio = rut.replace(".", "").replace(" ", "");
         
@@ -25,7 +25,12 @@ public class Cliente {
         if(!rutLimpio.contains("-")){
             throw new RutNoValidoException("El RUT debe contener un guión para ser válido");
         }
+        return rutLimpio;
+    }
+    
+    public void setRut(String rut) throws RutNoValidoException{
         
+        String rutLimpio = limpiarRut(rut);
         // Separar la parte del digito verificador
         
         String[] partes = rutLimpio.split("-");

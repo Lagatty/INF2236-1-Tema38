@@ -15,9 +15,14 @@ public class Sucursal {
         this.inventario = new HashMap<>();
     }
     
-    public void agregarEquipo(Equipo e){
-        if(e != null && e.id != null){
-            inventario.put(e.id, e);
+    public void agregarEquipo(Equipo e) throws IdDuplicadoException {
+        //Se utiliza la ID del equipo como clave del mapa
+        if(e != null && e.getId() != null){ 
+            // Verificamos si la clave (ID) ya está en el mapa
+            if (inventario.containsKey(e.getId())) {
+                throw new IdDuplicadoException("Error: Ya existe un equipo con el ID '" + e.getId() + "' en esta sucursal.");
+            }
+            inventario.put(e.getId(), e);
         }
     }
     
@@ -35,7 +40,7 @@ public class Sucursal {
             }
         }
     }
-    
+    // Getters y Setters
     public String getNombre(){
         return nombre;
     }
@@ -43,4 +48,7 @@ public class Sucursal {
         return direccion;
     }
     
+    public Map<String, Equipo> getInventario(){
+        return inventario;
+    }
 }
