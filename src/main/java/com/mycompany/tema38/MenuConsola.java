@@ -13,8 +13,8 @@ public class MenuConsola {
     
     // MENÚ PRINCIPAL 
     public void mostrarMenuPrincipal(){
-        boolean salir = false;
         
+        boolean salir = false;
         while(!salir){
             System.out.println("\n=== MENÚ PRINCIPAL ===");
             System.out.println("1. Gestionar Sucursales.");

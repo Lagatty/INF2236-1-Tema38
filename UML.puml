@@ -1,0 +1,52 @@
+@startuml
+abstract class com.mycompany.tema38.Equipo
+annotation java.lang.Override
+class com.mycompany.tema38.Arrendamiento
+class com.mycompany.tema38.Cliente
+class com.mycompany.tema38.GestorArchivos
+class com.mycompany.tema38.Herramienta
+class com.mycompany.tema38.HorasMotorException
+class com.mycompany.tema38.IdDuplicadoException
+class com.mycompany.tema38.Maquinaria
+class com.mycompany.tema38.MenuConsola
+class com.mycompany.tema38.RutNoValidoException
+class com.mycompany.tema38.SistemaArrendamiento
+class com.mycompany.tema38.Sucursal
+class com.mycompany.tema38.SucursalNoEncontradaException
+class com.mycompany.tema38.Tema38
+class java.io.BufferedReader
+class java.io.FileReader
+class java.io.FileWriter
+class java.io.IOException
+class java.io.PrintWriter
+class java.lang.Exception
+class java.util.ArrayList
+class java.util.HashMap
+class java.util.Map
+class java.util.Scanner
+class java.util.logging.Level
+class java.util.logging.Logger
+com.mycompany.tema38.Cliente ..> java.util.ArrayList
+com.mycompany.tema38.GestorArchivos ..> java.io.BufferedReader
+com.mycompany.tema38.GestorArchivos ..> java.io.FileReader
+com.mycompany.tema38.GestorArchivos ..> java.io.FileWriter
+com.mycompany.tema38.GestorArchivos ..> java.io.IOException
+com.mycompany.tema38.GestorArchivos ..> java.io.PrintWriter
+com.mycompany.tema38.GestorArchivos ..> java.util.Map
+com.mycompany.tema38.Herramienta --|> com.mycompany.tema38.Equipo
+com.mycompany.tema38.Herramienta ..> java.lang.Override
+com.mycompany.tema38.HorasMotorException --|> java.lang.Exception
+com.mycompany.tema38.IdDuplicadoException --|> java.lang.Exception
+com.mycompany.tema38.Maquinaria --|> com.mycompany.tema38.Equipo
+com.mycompany.tema38.Maquinaria ..> java.lang.Override
+com.mycompany.tema38.MenuConsola ..> java.util.Scanner
+com.mycompany.tema38.RutNoValidoException --|> java.lang.Exception
+com.mycompany.tema38.SistemaArrendamiento ..> java.util.HashMap
+com.mycompany.tema38.SistemaArrendamiento ..> java.util.Map
+com.mycompany.tema38.SistemaArrendamiento ..> java.util.Scanner
+com.mycompany.tema38.SistemaArrendamiento ..> java.util.logging.Level
+com.mycompany.tema38.SistemaArrendamiento ..> java.util.logging.Logger
+com.mycompany.tema38.Sucursal ..> java.util.HashMap
+com.mycompany.tema38.Sucursal ..> java.util.Map
+com.mycompany.tema38.SucursalNoEncontradaException --|> java.lang.Exception
+@enduml

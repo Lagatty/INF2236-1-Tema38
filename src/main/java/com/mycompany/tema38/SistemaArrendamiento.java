@@ -10,7 +10,9 @@ import java.util.logging.Logger;
 public class SistemaArrendamiento {
     private  Map<String, Sucursal> sedes;
     private  Map<String, Cliente> registroClientes;
+
     
+    private JFrame_Main ventanaPrincipal;
     private String nombreArchivo;
     private static SistemaArrendamiento instance;
     
@@ -25,8 +27,18 @@ public class SistemaArrendamiento {
     public static SistemaArrendamiento getInstance() {
         if (instance == null) {
             instance = new SistemaArrendamiento();
+            JFrame_Main ventanaPrincipal = new JFrame_Main();
         }
         return instance;
+    }
+    
+    
+    public JFrame_Main getVentanaPrincipal() {
+        return ventanaPrincipal;
+    }
+
+    public void setVentanaPrincipal(JFrame_Main ventanaPrincipal) {
+        this.ventanaPrincipal = ventanaPrincipal;
     }
     //Persistencia de datos con archivos CSV en clase GestorArchivos
     
@@ -171,11 +183,9 @@ public class SistemaArrendamiento {
                 }
                 case 2: {
                     //Si se elije ventana, se incializa el JFrame
-                    //System.out.println("Incializando interfaz gráfica...");
-                    
-                    System.out.println("El programa aun no esta disponible en ventana, se utilizará la consola.");
-                    MenuConsola menu = new MenuConsola();
-                    menu.mostrarMenuPrincipal();
+                    System.out.println("Incializando interfaz gráfica...");
+                    ventanaPrincipal = new JFrame_Main();
+                    ventanaPrincipal.setVisible(true);              
                     break;
                 }
                 case 0:{
