@@ -46,6 +46,11 @@ public class JFrame_Main extends javax.swing.JFrame {
         jButton2.setText("Gestionar Equipos");
 
         jButton3.setText("Gestionar Clientes");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setText("Registrar Nuevo Arriendo");
 
@@ -101,8 +106,6 @@ public class JFrame_Main extends javax.swing.JFrame {
                 .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("Gestionar Sucursales");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,6 +121,11 @@ public class JFrame_Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         SistemaArrendamiento.getInstance().getVentanaPrincipal().dispose();
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        new JFrame_Clientes().setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments

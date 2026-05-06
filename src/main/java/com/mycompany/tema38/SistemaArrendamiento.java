@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 //Clase controladora
 
@@ -19,6 +21,7 @@ public class SistemaArrendamiento {
     //constructor privado para respetar patron Singleton
     private SistemaArrendamiento() {
         this.sedes =  new HashMap<>();
+        JFrame_Main ventanaPrincipal = new JFrame_Main();
         this.registroClientes = new HashMap<>();
     }
     
@@ -27,7 +30,6 @@ public class SistemaArrendamiento {
     public static SistemaArrendamiento getInstance() {
         if (instance == null) {
             instance = new SistemaArrendamiento();
-            JFrame_Main ventanaPrincipal = new JFrame_Main();
         }
         return instance;
     }
@@ -87,6 +89,19 @@ public class SistemaArrendamiento {
         }
     }
     
+    public String getListaClientes_ventana(){
+        //string para guardar clientes
+        String clientesLista = "Lista de Clientes\n";
+        
+        // 2. Recorres SOLO los valores del HashMap
+        for (Cliente c : registroClientes.values()) {
+               clientesLista.concat("\n-");
+               clientesLista.concat(c.getNombre());
+        }
+        return clientesLista;
+        }
+        
+    
     public void devolverEquipo(String nombreSede, String idEquipo) throws Exception {
         //Validaciones
         
@@ -140,7 +155,7 @@ public class SistemaArrendamiento {
         }
     }
     
-    // Metodo para elegir entre ventana o consola (incompleto)
+    // Metodo para elegir entre ventana o consola 
     
     public void iniciar(){
         Scanner sc = new Scanner(System.in);
@@ -182,7 +197,7 @@ public class SistemaArrendamiento {
                     break;
                 }
                 case 2: {
-                    //Si se elije ventana, se incializa el JFrame
+                    //Si se elije ventana, se muestra el Frame
                     System.out.println("Incializando interfaz gráfica...");
                     ventanaPrincipal = new JFrame_Main();
                     ventanaPrincipal.setVisible(true);              
