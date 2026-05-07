@@ -40,6 +40,14 @@ public class JFrame_Clientes extends javax.swing.JFrame {
         jButton_BuscarclienteNombre = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea_Buscarcliente_Nombre = new javax.swing.JTextArea();
+        jButton_AgregarCliente = new javax.swing.JButton();
+        jTextField_NuevoCliente_nombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField_NuevoCliente_apellido = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField_NuevoCliente_rut = new javax.swing.JTextField();
+        jLabel_succesAgregar = new javax.swing.JLabel();
 
         jTextArea_Buscarcliente1.setColumns(20);
         jTextArea_Buscarcliente1.setRows(5);
@@ -99,23 +107,63 @@ public class JFrame_Clientes extends javax.swing.JFrame {
         jScrollPane6.setViewportView(jTextArea_Buscarcliente_Nombre);
         jTextArea_Buscarcliente_Nombre.getAccessibleContext().setAccessibleName("nombre...");
 
+        jButton_AgregarCliente.setText("Agregar Cliente");
+        jButton_AgregarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_AgregarClienteMouseClicked(evt);
+            }
+        });
+
+        jTextField_NuevoCliente_nombre.setToolTipText("Nombre");
+
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setText("Apellido:");
+
+        jTextField_NuevoCliente_apellido.setToolTipText("Nombre");
+
+        jLabel3.setText("Rut:");
+
+        jTextField_NuevoCliente_rut.setToolTipText("Nombre");
+
+        jLabel_succesAgregar.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_Listarclientes)
-                    .addComponent(jButton_BuscarclienteRut)
-                    .addComponent(jButton_BuscarclienteNombre))
-                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_Listarclientes)
+                            .addComponent(jButton_BuscarclienteRut)
+                            .addComponent(jButton_BuscarclienteNombre))
+                        .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel_succesAgregar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_AgregarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jTextField_NuevoCliente_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField_NuevoCliente_apellido))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_NuevoCliente_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,7 +186,23 @@ public class JFrame_Clientes extends javax.swing.JFrame {
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_AgregarCliente)
+                    .addComponent(jTextField_NuevoCliente_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField_NuevoCliente_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_NuevoCliente_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel_succesAgregar)))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -160,7 +224,7 @@ public class JFrame_Clientes extends javax.swing.JFrame {
         
          jTextArea_Listaclientes.setText(clienteBuscado.getNombre()+ " - " + clienteBuscado.getApellido() + " - Rut : " + clienteBuscado.getRut()); 
     }//GEN-LAST:event_jButton_BuscarclienteRutMouseClicked
-
+    
     private void jButton_BuscarclienteNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteNombreMouseClicked
         
         //Buscar cliente por nombre y apellido
@@ -171,6 +235,18 @@ public class JFrame_Clientes extends javax.swing.JFrame {
     private void jButton_BuscarclienteNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_BuscarclienteNombreActionPerformed
+
+    private void jButton_AgregarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AgregarClienteMouseClicked
+       
+        //Agregar cliente con parametros de rut, nombre y apellido
+        
+        String nombre = jTextField_NuevoCliente_nombre.getText();
+        String apellido = jTextField_NuevoCliente_apellido.getText();
+        String rut = jTextField_NuevoCliente_rut.getText();
+        
+        jLabel_succesAgregar.setText(SistemaArrendamiento.getInstance().agregarCliente_ventana(nombre, apellido, rut)); 
+        
+    }//GEN-LAST:event_jButton_AgregarClienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,9 +285,14 @@ public class JFrame_Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_AgregarCliente;
     private javax.swing.JButton jButton_BuscarclienteNombre;
     private javax.swing.JButton jButton_BuscarclienteRut;
     private javax.swing.JButton jButton_Listarclientes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel_succesAgregar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -223,5 +304,8 @@ public class JFrame_Clientes extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea_Buscarcliente_Apellido;
     private javax.swing.JTextArea jTextArea_Buscarcliente_Nombre;
     private javax.swing.JTextArea jTextArea_Listaclientes;
+    private javax.swing.JTextField jTextField_NuevoCliente_apellido;
+    private javax.swing.JTextField jTextField_NuevoCliente_nombre;
+    private javax.swing.JTextField jTextField_NuevoCliente_rut;
     // End of variables declaration//GEN-END:variables
 }

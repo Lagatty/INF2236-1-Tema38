@@ -10,7 +10,11 @@ import java.io.Serializable;
 //Clase controladora
 
 public class SistemaArrendamiento implements Serializable{
+    
+    //key = nombre de sucursal
     private  Map<String, Sucursal> sedes;
+    
+    //key = rut de cliente
     private  Map<String, Cliente> registroClientes;
     
     
@@ -83,6 +87,19 @@ public class SistemaArrendamiento implements Serializable{
     
     // Gestión sucursales
     
+    public Sucursal getSucursal(String nombre){
+        
+        //Buscar en mapa y retornar
+        
+        return sedes.get(nombre);
+      
+    }
+    
+    public ArrayList<String> getNombresSucursales() {
+        // Retornamos un ArrayList creado directamente a partir del set de llaves
+        return new ArrayList<>(sedes.keySet()); 
+    }
+    
     public void agregarSucursal(Sucursal s){
         sedes.put(s.getNombre().toUpperCase(), s);
     }
@@ -110,6 +127,26 @@ public class SistemaArrendamiento implements Serializable{
         return sb.toString();
         }
         
+    public String agregarCliente_ventana(String nombre, String apellido, String rut){
+        
+        Cliente nuevoCliente = new Cliente();
+        nuevoCliente.setApellido(apellido);
+        nuevoCliente.setNombre(nombre);
+        try{
+        nuevoCliente.setRut(rut);
+        }
+        catch(RutNoValidoException e){
+            //Salta la excepcion si no es válido el RUT
+            System.out.println("Error de validación: " + e.getMessage());
+            return("El cliente NO fue registrado. Intente nuevamente.");
+        }
+        //se agrega a la lista
+        registrarCliente(nuevoCliente);
+        
+        return "Agregado";
+    }
+    
+    
     
     public void devolverEquipo(String nombreSede, String idEquipo) throws Exception {
         //Validaciones
@@ -212,6 +249,7 @@ public class SistemaArrendamiento implements Serializable{
                 }
         }while(opcion != 0);
     }
+    
     
     // Gestion Arrendamiento
     

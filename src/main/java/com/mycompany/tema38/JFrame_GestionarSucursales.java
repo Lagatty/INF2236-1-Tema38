@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.tema38;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -26,21 +29,105 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton_ListarSucursales = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList_Sucursales = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea_Inventario = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton_ListarSucursales.setText("Listar Sucursales");
+        jButton_ListarSucursales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_ListarSucursalesMouseClicked(evt);
+            }
+        });
+
+        jList_Sucursales.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_SucursalesValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList_Sucursales);
+
+        jLabel1.setText("Inventario:");
+
+        jTextArea_Inventario.setEditable(false);
+        jTextArea_Inventario.setColumns(20);
+        jTextArea_Inventario.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_Inventario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton_ListarSucursales))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_ListarSucursales)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList_SucursalesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_SucursalesValueChanged
+        // Aqui se recibe el elemento clicado de la lista
+        
+        // 1. Verificamos que el usuario haya TERMINADO de seleccionar
+    if (!evt.getValueIsAdjusting()) {
+        
+        // 2. Obtenemos el valor seleccionado
+        
+        String seleccion = jList_Sucursales.getSelectedValue();
+        
+        // 3. Validamos que no sea nulo (por si se limpia la lista)
+        if (seleccion != null) {
+            System.out.println("Sucursal seleccionada: " + seleccion);
+            
+           // hacer que cargue el inventario abajo para esta sucursal
+           Sucursal sucursalSeleccionada = SistemaArrendamiento.getInstance().getSucursal(seleccion);
+           String inventario = sucursalSeleccionada.getlistaInventarioVentana();
+           
+           jTextArea_Inventario.setText(inventario);
+        }
+    }
+    }//GEN-LAST:event_jList_SucursalesValueChanged
+
+    private void jButton_ListarSucursalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ListarSucursalesMouseClicked
+        // Cargar lista de sucursales con nombre
+        
+        //  Obtener la lista de nombres desde tu lógica (Singleton)
+    ArrayList<String> nombres = SistemaArrendamiento.getInstance().getNombresSucursales();
+    DefaultListModel<String> modelo = new DefaultListModel<>();
+    jList_Sucursales.setModel(modelo);
+    
+     
+    //  Llenar el modelo con los nombres
+    for (String nombre : nombres) {
+        modelo.addElement(nombre);
+    }
+    }//GEN-LAST:event_jButton_ListarSucursalesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +165,11 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_ListarSucursales;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList_Sucursales;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea_Inventario;
     // End of variables declaration//GEN-END:variables
 }

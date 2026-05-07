@@ -41,6 +41,16 @@ public class Sucursal implements Serializable{
             }
         }
     }
+    
+    public String getlistaInventarioVentana(){
+        StringBuilder sb = new StringBuilder("--- Inventario de Sede:" + nombre + " ---");
+        
+        for(Equipo e : inventario.values()){
+            sb.append("\n-ID: " + e.getId() + " -Modelo: " + e.getModelo());
+        }
+        
+        return sb.toString();
+    }
     // Getters y Setters
     public String getNombre(){
         return nombre;
