@@ -1,6 +1,8 @@
 package com.mycompany.tema38;
 
-public abstract class Equipo {
+import java.io.Serializable;
+
+public abstract class Equipo implements Serializable{
     protected String id;
     protected String modelo;
     protected Double precioBase;

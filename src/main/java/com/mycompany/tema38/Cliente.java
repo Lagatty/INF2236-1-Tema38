@@ -1,7 +1,8 @@
 package com.mycompany.tema38;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente {
+public class Cliente implements Serializable{
     
     
     private String rut;

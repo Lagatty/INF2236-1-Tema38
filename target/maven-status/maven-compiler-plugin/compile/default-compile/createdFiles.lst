@@ -1,4 +1,5 @@
 com\mycompany\tema38\Tema38.class
+com\mycompany\tema38\JFrame_Clientes$6.class
 com\mycompany\tema38\JFrame_Main$3.class
 com\mycompany\tema38\JFrame_Clientes$1.class
 com\mycompany\tema38\HorasMotorException.class
@@ -6,9 +7,11 @@ com\mycompany\tema38\Equipo.class
 com\mycompany\tema38\Sucursal.class
 com\mycompany\tema38\Maquinaria.class
 com\mycompany\tema38\JFrame_Equipos.class
+com\mycompany\tema38\JFrame_Clientes$3.class
 com\mycompany\tema38\JFrame_Main$5.class
 com\mycompany\tema38\SucursalNoEncontradaException.class
 com\mycompany\tema38\Cliente.class
+com\mycompany\tema38\JFrame_Clientes$5.class
 com\mycompany\tema38\JFrame_GestionarSucursales.class
 com\mycompany\tema38\RutNoValidoException.class
 com\mycompany\tema38\JFrame_GestionarSucursales$1.class
@@ -22,6 +25,7 @@ com\mycompany\tema38\JFrame_Main$4.class
 com\mycompany\tema38\JFrame_Clientes$2.class
 com\mycompany\tema38\MenuConsola.class
 com\mycompany\tema38\SistemaArrendamiento.class
+com\mycompany\tema38\JFrame_Clientes$4.class
 com\mycompany\tema38\JFrame_Main$1.class
 com\mycompany\tema38\GestorArchivos.class
 com\mycompany\tema38\JFrame_Equipos$1.class

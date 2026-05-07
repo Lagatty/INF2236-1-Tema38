@@ -1,8 +1,9 @@
 package com.mycompany.tema38;
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Sucursal {
+public class Sucursal implements Serializable{
     
     private String nombre;
     private String direccion;

@@ -6,17 +6,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.Serializable;
 //Clase controladora
 
-public class SistemaArrendamiento {
+public class SistemaArrendamiento implements Serializable{
     private  Map<String, Sucursal> sedes;
     private  Map<String, Cliente> registroClientes;
-
     
-    private JFrame_Main ventanaPrincipal;
-    private String nombreArchivo;
-    private static SistemaArrendamiento instance;
+    
+    private transient JFrame_Main ventanaPrincipal;
+    private transient String nombreArchivo;
+    private transient static SistemaArrendamiento instance;
     
     //constructor privado para respetar patron Singleton
     private SistemaArrendamiento() {
@@ -24,16 +24,32 @@ public class SistemaArrendamiento {
         JFrame_Main ventanaPrincipal = new JFrame_Main();
         this.registroClientes = new HashMap<>();
     }
-    
     //Patron singleton para obtener referencia de esta clase desde ventana principal y en general de otras clases
     
     public static SistemaArrendamiento getInstance() {
         if (instance == null) {
+            
+            if (instance == null) {
+        // 1. Intentamos cargar el objeto completo desde el archivo
+        Object cargado = GestorArchivos.cargarDatos();
+
+        if (cargado instanceof SistemaArrendamiento) {
+            // 2. Si existe, la instancia es el objeto que acabamos de cargar
+            instance = (SistemaArrendamiento) cargado;
+            System.out.println("Instancia Singleton recuperada del archivo.");
+        } else {
+            // 3. Si no existe archivo o falló, creamos una instancia nueva (vacia)
             instance = new SistemaArrendamiento();
+            System.out.println("Archivo no encontrado. Nueva instancia Singleton creada.");
+        }
+    }
         }
         return instance;
     }
     
+    void guardarSistema(){
+        GestorArchivos.guardarDatos(instance);
+    }
     
     public JFrame_Main getVentanaPrincipal() {
         return ventanaPrincipal;
@@ -41,14 +57,6 @@ public class SistemaArrendamiento {
 
     public void setVentanaPrincipal(JFrame_Main ventanaPrincipal) {
         this.ventanaPrincipal = ventanaPrincipal;
-    }
-    //Persistencia de datos con archivos CSV en clase GestorArchivos
-    
-    public void guardarDatos(String nombreArchivo){
-        System.out.println("Iniciando proceso de guardado...");
-        if (this.nombreArchivo != null) {
-            GestorArchivos.guardarDatos(this.sedes, this.nombreArchivo); 
-        }
     }
     
     // Gestion clientes
@@ -91,14 +99,15 @@ public class SistemaArrendamiento {
     
     public String getListaClientes_ventana(){
         //string para guardar clientes
-        String clientesLista = "Lista de Clientes\n";
         
-        // 2. Recorres SOLO los valores del HashMap
+        StringBuilder sb = new StringBuilder("Lista de Clientes:\n");
+    
         for (Cliente c : registroClientes.values()) {
-               clientesLista.concat("\n-");
-               clientesLista.concat(c.getNombre());
+            sb.append("\n- ").append(c.getNombre()+ (" - ") + c.getApellido() + (" - Rut: ") + c.getRut());
+            
         }
-        return clientesLista;
+
+        return sb.toString();
         }
         
     
@@ -158,25 +167,14 @@ public class SistemaArrendamiento {
     // Metodo para elegir entre ventana o consola 
     
     public void iniciar(){
+        
+        //  REGISTRAMOS EL EVENTO DE CIERRE (HOOK)
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Cerrando el SistemaArrendamiento... Guardando datos en batch.");
+            guardarSistema();
+        }));
+        
         Scanner sc = new Scanner(System.in);
-        System.out.println("=== BIENVENIDO AL SISTEMA DE ARRENDAMIENTO ===");
-        
-        //Preguntamos el nombre del archivo ANTES de mostrar el menú
-        System.out.print("Ingrese el nombre del archivo de base de datos (ej. inventario.csv): ");
-        this.nombreArchivo = sc.nextLine();
-        
-        //Si el usuario presiona Enter sin escribir nada, se le da un nombre por defecto
-        if (this.nombreArchivo.trim().isEmpty()) {
-            this.nombreArchivo = "data.csv";
-        }
-
-        try {
-            //Ahora sí se cargan los datos usando el nombre que nos dio el usuario
-            GestorArchivos.cargarDatos(this.sedes, this.nombreArchivo);
-        } catch (IdDuplicadoException ex) {
-            Logger.getLogger(SistemaArrendamiento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         int opcion;
         
         do{
@@ -204,6 +202,7 @@ public class SistemaArrendamiento {
                     break;
                 }
                 case 0:{
+                    System.exit(0); // Cierra la aplicación de forma inmediata
                     System.out.println("Saliendo del programa...");
                     break;
                 }

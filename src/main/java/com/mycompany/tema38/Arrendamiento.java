@@ -1,7 +1,9 @@
 package com.mycompany.tema38;
 
+import java.io.Serializable;
 
-public class Arrendamiento {
+
+public class Arrendamiento implements Serializable{
     
     private Cliente arrendatario;
     private Equipo recurso;

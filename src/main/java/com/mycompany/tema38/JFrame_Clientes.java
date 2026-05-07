@@ -26,25 +26,78 @@ public class JFrame_Clientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea_Buscarcliente1 = new javax.swing.JTextArea();
+        jButton_Listarclientes = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextArea_Listaclientes = new javax.swing.JTextArea();
+        jButton_BuscarclienteRut = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea_Buscarcliente = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea_Buscarcliente_Apellido = new javax.swing.JTextArea();
+        jButton_BuscarclienteNombre = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea_Buscarcliente_Nombre = new javax.swing.JTextArea();
+
+        jTextArea_Buscarcliente1.setColumns(20);
+        jTextArea_Buscarcliente1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea_Buscarcliente1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Listar Clientes");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_Listarclientes.setText("Listar Clientes");
+        jButton_Listarclientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jButton_ListarclientesMouseClicked(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea_Listaclientes.setEditable(false);
+        jTextArea_Listaclientes.setColumns(20);
+        jTextArea_Listaclientes.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_Listaclientes);
 
         jScrollPane2.setViewportView(jScrollPane1);
+
+        jButton_BuscarclienteRut.setText("BuscarCliente por Rut");
+        jButton_BuscarclienteRut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_BuscarclienteRutMouseClicked(evt);
+            }
+        });
+        jButton_BuscarclienteRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BuscarclienteRutActionPerformed(evt);
+            }
+        });
+
+        jTextArea_Buscarcliente.setColumns(20);
+        jTextArea_Buscarcliente.setRows(5);
+        jScrollPane3.setViewportView(jTextArea_Buscarcliente);
+
+        jTextArea_Buscarcliente_Apellido.setColumns(20);
+        jTextArea_Buscarcliente_Apellido.setRows(5);
+        jScrollPane5.setViewportView(jTextArea_Buscarcliente_Apellido);
+        jTextArea_Buscarcliente_Apellido.getAccessibleContext().setAccessibleName("apellido...");
+
+        jButton_BuscarclienteNombre.setText("BuscarCliente por nombre y apellido");
+        jButton_BuscarclienteNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_BuscarclienteNombreMouseClicked(evt);
+            }
+        });
+        jButton_BuscarclienteNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BuscarclienteNombreActionPerformed(evt);
+            }
+        });
+
+        jTextArea_Buscarcliente_Nombre.setColumns(20);
+        jTextArea_Buscarcliente_Nombre.setRows(5);
+        jScrollPane6.setViewportView(jTextArea_Buscarcliente_Nombre);
+        jTextArea_Buscarcliente_Nombre.getAccessibleContext().setAccessibleName("nombre...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,10 +105,18 @@ public class JFrame_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_Listarclientes)
+                    .addComponent(jButton_BuscarclienteRut)
+                    .addComponent(jButton_BuscarclienteNombre))
                 .addGap(42, 42, 42)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,17 +126,51 @@ public class JFrame_Clientes extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jButton1)))
-                .addContainerGap(320, Short.MAX_VALUE))
+                        .addComponent(jButton_Listarclientes)))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_BuscarclienteRut)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_BuscarclienteNombre)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jButton_ListarclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ListarclientesMouseClicked
         // Listar clientes dentro del text panel, llamando a metodo de sistemaArrendamiento
-        jTextArea1.setText(SistemaArrendamiento.getInstance().getListaClientes_ventana());
-    }//GEN-LAST:event_jButton1MouseClicked
+        jTextArea_Listaclientes.setText(SistemaArrendamiento.getInstance().getListaClientes_ventana());
+    }//GEN-LAST:event_jButton_ListarclientesMouseClicked
+
+    private void jButton_BuscarclienteRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_BuscarclienteRutActionPerformed
+
+    private void jButton_BuscarclienteRutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteRutMouseClicked
+      
+        //Buscar cliente por rut
+        Cliente clienteBuscado = SistemaArrendamiento.getInstance().buscarCliente(jTextArea_Buscarcliente.getText());
+        
+         jTextArea_Listaclientes.setText(clienteBuscado.getNombre()+ " - " + clienteBuscado.getApellido() + " - Rut : " + clienteBuscado.getRut()); 
+    }//GEN-LAST:event_jButton_BuscarclienteRutMouseClicked
+
+    private void jButton_BuscarclienteNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteNombreMouseClicked
+        
+        //Buscar cliente por nombre y apellido
+         Cliente clienteBuscado = SistemaArrendamiento.getInstance().buscarCliente(jTextArea_Buscarcliente_Nombre.getText(), jTextArea_Buscarcliente_Apellido.getText());
+         jTextArea_Listaclientes.setText(clienteBuscado.getNombre()+ " - " + clienteBuscado.getApellido() + " - Rut : " + clienteBuscado.getRut());
+    }//GEN-LAST:event_jButton_BuscarclienteNombreMouseClicked
+
+    private void jButton_BuscarclienteNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarclienteNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_BuscarclienteNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +209,19 @@ public class JFrame_Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_BuscarclienteNombre;
+    private javax.swing.JButton jButton_BuscarclienteRut;
+    private javax.swing.JButton jButton_Listarclientes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTextArea_Buscarcliente;
+    private javax.swing.JTextArea jTextArea_Buscarcliente1;
+    private javax.swing.JTextArea jTextArea_Buscarcliente_Apellido;
+    private javax.swing.JTextArea jTextArea_Buscarcliente_Nombre;
+    private javax.swing.JTextArea jTextArea_Listaclientes;
     // End of variables declaration//GEN-END:variables
 }
