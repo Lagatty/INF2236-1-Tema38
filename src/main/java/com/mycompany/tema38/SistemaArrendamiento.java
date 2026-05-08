@@ -100,9 +100,15 @@ public class SistemaArrendamiento implements Serializable{
         return new ArrayList<>(sedes.keySet()); 
     }
     
+    public ArrayList<String> getNombresClientes(){
+        return new ArrayList<>(registroClientes.keySet());
+    }
+    
     public void agregarSucursal(Sucursal s){
         sedes.put(s.getNombre().toUpperCase(), s);
     }
+    
+    
     
     public void listarSedes(){
         if(sedes.isEmpty()){
@@ -126,6 +132,8 @@ public class SistemaArrendamiento implements Serializable{
 
         return sb.toString();
         }
+    
+ 
         
     public String agregarCliente_ventana(String nombre, String apellido, String rut){
         

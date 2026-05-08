@@ -1,5 +1,6 @@
 package com.mycompany.tema38;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -31,6 +32,14 @@ public class Sucursal implements Serializable{
         inventario.remove(id);
     }
     
+    
+    public ArrayList<Object> getEquipos() {
+        // Retornamos un ArrayList creado directamente a partir del set de values
+        
+        return new ArrayList<>(inventario.values()); 
+    }
+    
+    
     public void listarInventario(){
         System.out.println("--- Inventario de Sede: " + nombre + " ---");
         if(inventario.isEmpty()){
@@ -46,7 +55,7 @@ public class Sucursal implements Serializable{
         StringBuilder sb = new StringBuilder("--- Inventario de Sede:" + nombre + " ---");
         
         for(Equipo e : inventario.values()){
-            sb.append("\n-ID: " + e.getId() + " -Modelo: " + e.getModelo());
+            sb.append("\n-ID: " + e.getId() + " -Modelo: " + e.getModelo() + "-Disponible: " + e.disponible);
         }
         
         return sb.toString();

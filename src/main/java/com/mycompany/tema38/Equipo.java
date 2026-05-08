@@ -16,4 +16,10 @@ public abstract class Equipo implements Serializable{
     public double getPrecioBase() { return precioBase; }
     public boolean isDisponible() { return disponible; }
     public void setDisponible(boolean disponible) { this.disponible = disponible; }
+    
+    @Override
+    public String toString() {
+        String retorno = ("ID : "+id+" - Modelo: "+modelo+" Disponible: "+isDisponible());
+        return retorno;
+    }
 }

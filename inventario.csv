@@ -1,7 +1,0 @@
-Sede,Tipo,ID,Modelo,PrecioBase,AtributoExtra
-SANTIAGO,Herramienta,H01,Taladro Percutor,15000.0,NA
-SANTIAGO,Maquinaria,M01,Excavadora CAT,85000.0,120
-VALPARAISO,Herramienta,H02,Sierra Circular,12000.0,NA
-VALPARAISO,Maquinaria,M02,Generador Diesel,45000.0,45
-CONCEPCION,Herramienta,H03,Lijadora Orbital,8000.0,NA
-CONCEPCION,Maquinaria,M03,Retroexcavadora,95000.0,200

@@ -53,7 +53,7 @@ public class JFrame_Clientes extends javax.swing.JFrame {
         jTextArea_Buscarcliente1.setRows(5);
         jScrollPane4.setViewportView(jTextArea_Buscarcliente1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton_Listarclientes.setText("Listar Clientes");
         jButton_Listarclientes.addMouseListener(new java.awt.event.MouseAdapter() {

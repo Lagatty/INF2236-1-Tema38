@@ -13,6 +13,20 @@ public class JFrame_Equipos extends javax.swing.JFrame {
     /**
      * Creates new form JFrame_Equipos
      */
+    
+    
+    private String nombreSucursal;
+
+    public String getNombreSucursal() {
+        return nombreSucursal;
+    }
+
+    public void setNombreSucursal(String nombreSucursal) {
+        this.nombreSucursal = nombreSucursal;
+        
+        jLabel_nombreSucursal.setText(nombreSucursal);
+    }
+    
     public JFrame_Equipos() {
         initComponents();
     }
@@ -26,21 +40,170 @@ public class JFrame_Equipos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jComboBox_tipoEquipo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField_ID = new javax.swing.JTextField();
+        jTextField_Modelo = new javax.swing.JTextField();
+        jButton_AgregarEquipo = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel_nombreSucursal = new javax.swing.JLabel();
+        jFormattedTextField_Precio = new javax.swing.JFormattedTextField();
+        jFormattedTextField_HorasMotor = new javax.swing.JFormattedTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jComboBox_tipoEquipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Herramienta", "Maquinaria" }));
+
+        jLabel1.setText("Tipo de equipo:");
+
+        jLabel2.setText("ID: ");
+
+        jLabel3.setText("Modelo:");
+
+        jLabel4.setText("PrecioBase:");
+
+        jLabel5.setText("Horas motor:");
+
+        jButton_AgregarEquipo.setText("Agregar equipo");
+        jButton_AgregarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_AgregarEquipoMouseClicked(evt);
+            }
+        });
+
+        jLabel7.setText("Sucursal: ");
+
+        jLabel_nombreSucursal.setText("                       ");
+
+        jFormattedTextField_Precio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jFormattedTextField_Precio.setText("0");
+        jFormattedTextField_Precio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField_PrecioActionPerformed(evt);
+            }
+        });
+
+        jFormattedTextField_HorasMotor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox_tipoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel_nombreSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_AgregarEquipo)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(jTextField_Modelo)
+                            .addComponent(jFormattedTextField_Precio)
+                            .addComponent(jFormattedTextField_HorasMotor, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel_nombreSucursal))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_tipoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton_AgregarEquipo))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jFormattedTextField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jFormattedTextField_HorasMotor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_AgregarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AgregarEquipoMouseClicked
+        // Agregar equipo con los datos ingresados
+        
+        //Seleccionar equipo a crear en base al combo box
+        String tipoEquipo = (String) jComboBox_tipoEquipo.getSelectedItem();
+        
+        Equipo nuevoEquipo = null;
+        
+        //Obtener datos para la creacion de equipo
+        
+        double precio = ((Number) jFormattedTextField_Precio.getValue()).doubleValue();
+        int horasMotor = ((Number) jFormattedTextField_HorasMotor.getValue()).intValue();
+        String id = jTextField_ID.getText();
+        String modelo = jTextField_Modelo.getText();
+        
+        switch(tipoEquipo){
+            case "Herramienta":
+                //Construir equipo tipo herramienta
+                
+                nuevoEquipo = new Herramienta(id, modelo, precio);
+                break;
+            case "Maquinaria":
+                //Construir equipo tipo maquinaria
+                try {
+                    nuevoEquipo = new Maquinaria(id, modelo, precio, horasMotor);
+                }
+                catch(HorasMotorException e){
+                    
+                    System.out.println("Error de motor: " + e.getMessage());
+                }   
+                break;
+        }
+        
+        //Intentamos agregar el equipo si es que se logro construir correctamente
+        try{
+            if(nuevoEquipo!=null){
+                SistemaArrendamiento.getInstance().getSucursal(nombreSucursal).agregarEquipo(nuevoEquipo);
+            }
+             
+        }
+        catch(IdDuplicadoException e){
+            System.out.println(e.getMessage());
+        }
+       
+    }//GEN-LAST:event_jButton_AgregarEquipoMouseClicked
+
+    private void jFormattedTextField_PrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField_PrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField_PrecioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +241,18 @@ public class JFrame_Equipos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_AgregarEquipo;
+    private javax.swing.JComboBox<String> jComboBox_tipoEquipo;
+    private javax.swing.JFormattedTextField jFormattedTextField_HorasMotor;
+    private javax.swing.JFormattedTextField jFormattedTextField_Precio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel_nombreSucursal;
+    private javax.swing.JTextField jTextField_ID;
+    private javax.swing.JTextField jTextField_Modelo;
     // End of variables declaration//GEN-END:variables
 }

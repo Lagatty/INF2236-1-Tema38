@@ -16,8 +16,24 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
     /**
      * Creates new form JFrame_GestionarSucursales
      */
+    private String seleccion;
+
+    public String getSeleccion() {
+        return seleccion;
+    }
+
+    public void setSeleccion(String seleccion) {
+        this.seleccion = seleccion;
+    }
+    
+    
     public JFrame_GestionarSucursales() {
+        
+        
         initComponents();
+        //Actualizar lista
+        actualizarLista();
+        
     }
 
     /**
@@ -35,8 +51,17 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_Inventario = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jButton_AgregarSucursal = new javax.swing.JButton();
+        jTextField_NuevaSucursal_Nombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField_NuevaSucursal_Direccion = new javax.swing.JTextField();
+        jLabel_AgregarSucursalResultado = new javax.swing.JLabel();
+        jButton_GestionarEquipos = new javax.swing.JButton();
+        jLabel_AvisoSeleccionar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton_ListarSucursales.setText("Listar Sucursales");
         jButton_ListarSucursales.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -59,33 +84,102 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
         jTextArea_Inventario.setRows(5);
         jScrollPane1.setViewportView(jTextArea_Inventario);
 
+        jLabel2.setText("Selecciona una sucursal para cargar su inventario.");
+
+        jButton_AgregarSucursal.setText("Agregar Sucursal");
+        jButton_AgregarSucursal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_AgregarSucursalMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Direccion:");
+
+        jLabel_AgregarSucursalResultado.setText(" ");
+
+        jButton_GestionarEquipos.setText("Gestionar equipos");
+        jButton_GestionarEquipos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_GestionarEquiposMouseClicked(evt);
+            }
+        });
+
+        jLabel_AvisoSeleccionar.setText("  ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton_ListarSucursales))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton_ListarSucursales)
+                            .addComponent(jLabel1))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_GestionarEquipos)
+                                    .addComponent(jLabel_AvisoSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_AgregarSucursal)
+                            .addComponent(jLabel_AgregarSucursalResultado))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField_NuevaSucursal_Direccion))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField_NuevaSucursal_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_ListarSucursales)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton_ListarSucursales)
+                                .addGap(58, 58, 58)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton_GestionarEquipos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel_AvisoSeleccionar)
+                        .addGap(33, 33, 33)))
+                .addComponent(jLabel2)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(195, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_AgregarSucursal)
+                    .addComponent(jTextField_NuevaSucursal_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel_AgregarSucursalResultado))
+                    .addComponent(jTextField_NuevaSucursal_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
         );
 
         pack();
@@ -95,11 +189,13 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
         // Aqui se recibe el elemento clicado de la lista
         
         // 1. Verificamos que el usuario haya TERMINADO de seleccionar
-    if (!evt.getValueIsAdjusting()) {
+        if (!evt.getValueIsAdjusting()) {
         
         // 2. Obtenemos el valor seleccionado
         
-        String seleccion = jList_Sucursales.getSelectedValue();
+        this.seleccion = jList_Sucursales.getSelectedValue();
+        
+        jLabel_AvisoSeleccionar.setText("");
         
         // 3. Validamos que no sea nulo (por si se limpia la lista)
         if (seleccion != null) {
@@ -116,18 +212,60 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
 
     private void jButton_ListarSucursalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ListarSucursalesMouseClicked
         // Cargar lista de sucursales con nombre
+        actualizarLista();
         
-        //  Obtener la lista de nombres desde tu lógica (Singleton)
-    ArrayList<String> nombres = SistemaArrendamiento.getInstance().getNombresSucursales();
-    DefaultListModel<String> modelo = new DefaultListModel<>();
-    jList_Sucursales.setModel(modelo);
+    }//GEN-LAST:event_jButton_ListarSucursalesMouseClicked
+
+    private void actualizarLista(){
+        
+        //  Obtener la lista de nombres desde sistema
+        ArrayList<String> nombres = SistemaArrendamiento.getInstance().getNombresSucursales();
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        jList_Sucursales.setModel(modelo);
     
      
     //  Llenar el modelo con los nombres
     for (String nombre : nombres) {
         modelo.addElement(nombre);
     }
-    }//GEN-LAST:event_jButton_ListarSucursalesMouseClicked
+    }
+    
+    private void jButton_AgregarSucursalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AgregarSucursalMouseClicked
+        
+        // Agregar nueva sucursal con los datos ingresados en los campos de nombre y direccion
+        
+        String nombre = jTextField_NuevaSucursal_Nombre.getText();
+        String direccion = jTextField_NuevaSucursal_Direccion.getText();
+        //Crear objeto de tipo sucursal
+        Sucursal nuevaSucursal = new Sucursal(nombre, direccion);
+        
+        //intentar agregar
+        SistemaArrendamiento.getInstance().agregarSucursal(nuevaSucursal);
+        jLabel_AgregarSucursalResultado.setText("Sucursal agregada");
+        
+        //Actualizar lista
+        actualizarLista();
+        
+        
+    }//GEN-LAST:event_jButton_AgregarSucursalMouseClicked
+
+    private void jButton_GestionarEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GestionarEquiposMouseClicked
+        // Verifica si se selecciono alguna sucursal
+        
+        if (seleccion != null && !seleccion.isBlank()) {
+        // No es nulo, no está vacío y no son solo espacios
+        //Abrir gestionar equipos con parametro del nombre de la sucursal
+        JFrame_Equipos ventanaEquipos = new JFrame_Equipos();
+        ventanaEquipos.setVisible(true);
+        ventanaEquipos.setNombreSucursal(seleccion);
+        
+        
+        }
+        else{
+            //Emitir mensaje de que no se selecciono nada
+            jLabel_AvisoSeleccionar.setText("Debe seleccionar sucursal");
+        }
+    }//GEN-LAST:event_jButton_GestionarEquiposMouseClicked
 
     /**
      * @param args the command line arguments
@@ -162,14 +300,25 @@ public class JFrame_GestionarSucursales extends javax.swing.JFrame {
                 new JFrame_GestionarSucursales().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_AgregarSucursal;
+    private javax.swing.JButton jButton_GestionarEquipos;
     private javax.swing.JButton jButton_ListarSucursales;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel_AgregarSucursalResultado;
+    private javax.swing.JLabel jLabel_AvisoSeleccionar;
     private javax.swing.JList<String> jList_Sucursales;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea_Inventario;
+    private javax.swing.JTextField jTextField_NuevaSucursal_Direccion;
+    private javax.swing.JTextField jTextField_NuevaSucursal_Nombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,11 +27,9 @@ public class JFrame_Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton_GestionSucursales = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButton_RegistrarArriendo = new javax.swing.JButton();
+        jButton_guardar = new javax.swing.JButton();
         jButton_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,8 +46,6 @@ public class JFrame_Main extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Gestionar Equipos");
-
         jButton3.setText("Gestionar Clientes");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -57,16 +53,19 @@ public class JFrame_Main extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Registrar Nuevo Arriendo");
-
-        jButton5.setText("Cargar Datos desde archivo");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        jButton_RegistrarArriendo.setText("Registrar Nuevo Arriendo");
+        jButton_RegistrarArriendo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_RegistrarArriendoMouseClicked(evt);
             }
         });
 
-        jButton6.setText("Guardar Datos");
+        jButton_guardar.setText("Guardar Datos");
+        jButton_guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_guardarMouseClicked(evt);
+            }
+        });
 
         jButton_salir.setText("Salir");
         jButton_salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,32 +82,26 @@ public class JFrame_Main extends javax.swing.JFrame {
                 .addGap(178, 178, 178)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton_GestionSucursales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_RegistrarArriendo, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(jButton_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(105, 105, 105)
                 .addComponent(jButton_GestionSucursales)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(jButton_RegistrarArriendo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(jButton_guardar)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_salir)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,13 +111,11 @@ public class JFrame_Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_GestionSucursalesActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_salirMouseClicked
         // TODO add your handling code here:
         SistemaArrendamiento.getInstance().getVentanaPrincipal().dispose();
+        System.exit(0); // Cierra la aplicación de forma inmediata
+        
     }//GEN-LAST:event_jButton_salirMouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -137,6 +128,18 @@ public class JFrame_Main extends javax.swing.JFrame {
         new JFrame_GestionarSucursales().setVisible(true);
         
     }//GEN-LAST:event_jButton_GestionSucursalesMouseClicked
+
+    private void jButton_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_guardarMouseClicked
+        // Forzar guardado
+        
+        SistemaArrendamiento.getInstance().guardarSistema();
+    }//GEN-LAST:event_jButton_guardarMouseClicked
+
+    private void jButton_RegistrarArriendoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistrarArriendoMouseClicked
+        // TODO add your handling code here:
+        
+        new JFrame_Arrendamientos().setVisible(true);
+    }//GEN-LAST:event_jButton_RegistrarArriendoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -174,12 +177,10 @@ public class JFrame_Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton_GestionSucursales;
+    private javax.swing.JButton jButton_RegistrarArriendo;
+    private javax.swing.JButton jButton_guardar;
     private javax.swing.JButton jButton_salir;
     // End of variables declaration//GEN-END:variables
 }
